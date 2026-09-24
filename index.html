@@ -9,17 +9,15 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Pavithra C | Aspiring Data Analyst</title>
+<title>Pavithra C| Aspiring Data Analyst</title>
 
 <link rel="stylesheet"
       href="templatemo-graph-page.css">
 
+<!-- GRAPH ALIGNMENT FIX -->
 <style>
 
-    /* =========================
-       GRAPH ALIGNMENT
-    ========================== */
-
+    /* Keep all bar labels below the graph bars */
     .charts-grid .chart-card .bar-chart {
         align-items: flex-end;
         position: relative;
@@ -31,6 +29,7 @@
         overflow: visible;
     }
 
+    /* Percentage / value text */
     .charts-grid .chart-card .bar-value {
         position: absolute;
         top: 8px;
@@ -44,6 +43,7 @@
         z-index: 2;
     }
 
+    /* Skill name below each bar */
     .charts-grid .chart-card .bar-label {
         position: absolute;
         top: calc(100% + 12px);
@@ -57,51 +57,48 @@
         z-index: 5;
     }
 
+    /* Oracle SQL Developer needs more width */
     .charts-grid .chart-card .oracle-bar .bar-label {
         width: 125px;
         font-size: 10px;
         line-height: 1.2;
     }
 
+    /* Give chart enough bottom space for labels */
     .charts-grid .chart-card .chart-container {
         padding-bottom: 55px;
         overflow: visible;
     }
 
+    /* Data Tools labels */
     .charts-grid .chart-card .data-tools-bar .bar-label {
         width: 90px;
     }
 
+    /* Tools labels */
     .charts-grid .chart-card .tools-bar .bar-label {
         width: 120px;
     }
 
 
     /* =========================
-       PROFILE PHOTO
+       ABOUT ME PHOTO
     ========================== */
 
-    .profile-photo {
-        width: 230px;
-        height: 230px;
-        border-radius: 50%;
+    .about-photo {
+        width: 220px;
+        height: 220px;
         object-fit: cover;
         display: block;
-        margin: 0 auto;
-        border: 4px solid #00ffcc;
-        box-shadow: 0 0 25px rgba(0, 255, 204, 0.35);
-    }
-
-    .profile-photo-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
+        margin: 0 auto 20px auto;
+        border-radius: 8px;
+        border: 3px solid #00ffcc;
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.25);
     }
 
 
     /* =========================
-       MOBILE NAVIGATION FIX
+       MOBILE HAMBURGER
     ========================== */
 
     .hamburger {
@@ -109,7 +106,6 @@
         cursor: pointer;
         flex-direction: column;
         gap: 5px;
-        padding: 8px;
     }
 
     .hamburger span {
@@ -126,7 +122,7 @@
 
 
     /* =========================
-       MOBILE RESPONSIVE
+       MOBILE VERSION
     ========================== */
 
     @media (max-width: 768px) {
@@ -139,10 +135,8 @@
             display: flex;
         }
 
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .nav-links-mobile.show {
+            display: block;
         }
 
         .nav-links-mobile {
@@ -151,15 +145,11 @@
             left: 0;
             width: 100%;
             background: #111;
-            padding: 15px 0;
+            padding: 10px 0;
             margin: 0;
             list-style: none;
             z-index: 9999;
             box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-        }
-
-        .nav-links-mobile.show {
-            display: block;
         }
 
         .nav-links-mobile li {
@@ -168,7 +158,7 @@
 
         .nav-links-mobile li a {
             display: block;
-            padding: 15px 25px;
+            padding: 14px 25px;
             color: #fff;
             text-decoration: none;
             font-size: 16px;
@@ -180,42 +170,9 @@
             background: rgba(0,255,204,0.08);
         }
 
-        .search-icon {
-            display: none !important;
-        }
-
-        .profile-photo {
+        .about-photo {
             width: 180px;
             height: 180px;
-        }
-
-        .hero-content {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .hero-text {
-            width: 100%;
-        }
-
-        .hero-visual {
-            width: 100%;
-        }
-
-        .info-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .charts-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .metrics-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .contact-grid {
-            grid-template-columns: 1fr;
         }
 
     }
@@ -249,38 +206,48 @@
             </div>
 
             <span class="logo-text">
-                Pavithra
+                Pavithra 
             </span>
 
         </a>
 
 
-        <!-- DESKTOP NAVIGATION -->
-
         <ul class="nav-links">
 
             <li>
-                <a href="#home" class="active">Home</a>
+                <a href="#home" class="active">
+                    Home
+                </a>
             </li>
 
             <li>
-                <a href="#about">About</a>
+                <a href="#about">
+                    About
+                </a>
             </li>
 
             <li>
-                <a href="#skills">Skills</a>
+                <a href="#skills">
+                    Skills
+                </a>
             </li>
 
             <li>
-                <a href="#projects">Projects</a>
+                <a href="#projects">
+                    Projects
+                </a>
             </li>
 
             <li>
-                <a href="#experience">Experience</a>
+                <a href="#experience">
+                    Experience
+                </a>
             </li>
 
             <li>
-                <a href="#contact">Contact</a>
+                <a href="#contact">
+                    Contact
+                </a>
             </li>
 
         </ul>
@@ -288,8 +255,6 @@
 
         <!-- SEARCH ICON REMOVED -->
 
-
-        <!-- HAMBURGER -->
 
         <div class="hamburger"
              id="hamburger">
@@ -303,33 +268,45 @@
     </div>
 
 
-    <!-- MOBILE NAVIGATION -->
+    <!-- MOBILE MENU -->
 
     <ul class="nav-links-mobile"
         id="navLinksMobile">
 
         <li>
-            <a href="#home">Home</a>
+            <a href="#home">
+                Home
+            </a>
         </li>
 
         <li>
-            <a href="#about">About</a>
+            <a href="#about">
+                About
+            </a>
         </li>
 
         <li>
-            <a href="#skills">Skills</a>
+            <a href="#skills">
+                Skills
+            </a>
         </li>
 
         <li>
-            <a href="#projects">Projects</a>
+            <a href="#projects">
+                Projects
+            </a>
         </li>
 
         <li>
-            <a href="#experience">Experience</a>
+            <a href="#experience">
+                Experience
+            </a>
         </li>
 
         <li>
-            <a href="#contact">Contact</a>
+            <a href="#contact">
+                Contact
+            </a>
         </li>
 
     </ul>
@@ -385,15 +362,34 @@
         </div>
 
 
-        <!-- PROFILE PHOTO -->
-
         <div class="hero-visual">
 
-            <div class="profile-photo-container">
+            <!-- ORIGINAL HOME DESIGN KEPT -->
 
-                <img src="images/pic.jpg"
-                     alt="Pavithra C"
-                     class="profile-photo">
+            <div class="city-container">
+
+                <div class="building building1">
+                    <div class="building-fill"></div>
+                    <div class="building-windows"></div>
+                </div>
+
+                <div class="building building2">
+                    <div class="building-fill"></div>
+                    <div class="building-windows"></div>
+                </div>
+
+                <div class="building building3">
+                    <div class="building-fill"></div>
+                    <div class="building-windows"></div>
+                </div>
+
+                <div class="building building4">
+                    <div class="building-fill"></div>
+                    <div class="building-windows"></div>
+                </div>
+
+                <div class="neon-line neon-line1"></div>
+                <div class="neon-line neon-line2"></div>
 
             </div>
 
@@ -421,21 +417,28 @@
 
         <div class="info-grid">
 
+
+            <!-- ABOUT ME WITH PHOTO -->
+
             <div class="info-card">
+
+                <img src="images/pic.jpg"
+                     alt="Pavithra C"
+                     class="about-photo">
 
                 <div class="info-icon">
                     👩‍💻
                 </div>
 
                 <h3 class="info-title">
-                    Hello 😊
+                    Hello😊
                 </h3>
 
                 <p style="font-size: 15px;
                           color: #a0a0a0;
                           line-height: 1.7;">
 
-                    I am Pavithra - Computer Science
+                    I am Pavithra-Computer Science
                     postgraduate and aspiring Data Analyst.
                     I enjoy working with data, finding useful
                     insights and building simple, meaningful
@@ -446,37 +449,51 @@
             </div>
 
 
+            <!-- EDUCATION -->
+
             <div class="info-card">
 
-                <div class="info-icon">
-                    🎓
-                </div>
-
-                <h3 class="info-title">
-                    Education
-                </h3>
-
-                <div class="info-value">
-                    M.Sc. Computer Science
-                </div>
-
-                <p style="font-size: 14px;
-                          color: #a0a0a0;">
-
-                    St. Anne's Arts and Science College,
-                    Madhavaram
-
-                    <br>
-
-                    Completed in 2025
-
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="info-icon">
+        🎓
     </div>
+
+    <h3 class="info-title">
+        Education
+    </h3>
+
+    <div class="info-value">
+        M.Sc. Computer Science
+    </div>
+
+    <p style="font-size: 14px;
+              color: #a0a0a0;">
+
+        St. Anne's Arts and Science College,
+        Madhavaram
+
+        <br>
+
+        Completed in 2025
+
+    </p>
+
+
+    <div class="info-value" style="margin-top: 20px;">
+        B.Sc. Computer Science
+    </div>
+
+    <p style="font-size: 14px;
+              color: #a0a0a0;">
+
+        Chevalier T. Thomas Elizabeth College
+        for Women, Perambur, Chennai
+
+        <br>
+        Completed in 2023
+
+    </p>
+
+</div>
 
 </section>
 
@@ -499,33 +516,80 @@
         <div class="metrics-grid">
 
             <div class="metric-item">
-                <div class="metric-value">Python</div>
-                <div class="metric-label">Programming</div>
+
+                <div class="metric-value">
+                    Python
+                </div>
+
+                <div class="metric-label">
+                    Programming
+                </div>
+
             </div>
 
-            <div class="metric-item">
-                <div class="metric-value">SQL</div>
-                <div class="metric-label">Database</div>
-            </div>
 
             <div class="metric-item">
-                <div class="metric-value">Excel</div>
-                <div class="metric-label">Data Analysis</div>
+
+                <div class="metric-value">
+                    SQL
+                </div>
+
+                <div class="metric-label">
+                    Database
+                </div>
+
             </div>
 
-            <div class="metric-item">
-                <div class="metric-value">Power BI</div>
-                <div class="metric-label">Visualization</div>
-            </div>
 
             <div class="metric-item">
-                <div class="metric-value">HTML</div>
-                <div class="metric-label">Web Development</div>
+
+                <div class="metric-value">
+                    Excel
+                </div>
+
+                <div class="metric-label">
+                    Data Analysis
+                </div>
+
             </div>
 
+
             <div class="metric-item">
-                <div class="metric-value">CSS</div>
-                <div class="metric-label">Web Development</div>
+
+                <div class="metric-value">
+                    Power BI
+                </div>
+
+                <div class="metric-label">
+                    Visualization
+                </div>
+
+            </div>
+
+
+            <div class="metric-item">
+
+                <div class="metric-value">
+                    HTML
+                </div>
+
+                <div class="metric-label">
+                    Web Development
+                </div>
+
+            </div>
+
+
+            <div class="metric-item">
+
+                <div class="metric-value">
+                    CSS
+                </div>
+
+                <div class="metric-label">
+                    Web Development
+                </div>
+
             </div>
 
         </div>
@@ -546,6 +610,7 @@
                     </h3>
 
                 </div>
+
 
                 <div class="chart-container">
 
@@ -598,9 +663,11 @@
 
                 </div>
 
+
                 <div class="chart-container">
 
                     <div class="bar-chart">
+
 
                         <div class="bar data-tools-bar"
                              style="height: 85%;">
@@ -629,6 +696,7 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
@@ -649,9 +717,11 @@
 
                 </div>
 
+
                 <div class="chart-container">
 
                     <div class="bar-chart">
+
 
                         <div class="bar"
                              style="height: 75%;">
@@ -694,6 +764,7 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
@@ -714,9 +785,11 @@
 
                 </div>
 
+
                 <div class="chart-container">
 
                     <div class="bar-chart">
+
 
                         <div class="bar tools-bar oracle-bar"
                              style="height: 90%;">
@@ -759,6 +832,7 @@
                             </span>
 
                         </div>
+
 
                     </div>
 
@@ -913,6 +987,8 @@
         <div class="info-grid">
 
 
+            <!-- Internship 1 -->
+
             <div class="info-card">
 
                 <div class="info-icon">
@@ -947,6 +1023,8 @@
 
 
 
+            <!-- Internship 2 -->
+
             <div class="info-card">
 
                 <div class="info-icon">
@@ -979,6 +1057,8 @@
             </div>
 
 
+
+            <!-- Certifications -->
 
             <div class="info-card">
 
@@ -1253,6 +1333,8 @@
             © Pavithra C.
             All rights reserved.
 
+            <br>
+
         </p>
 
     </div>
@@ -1261,17 +1343,23 @@
 
 
 
-<!-- ORIGINAL JAVASCRIPT -->
+<!-- =========================
+     JAVASCRIPT
+========================== -->
 
 <script src="templatemo-graph-script.js"></script>
 
 
-<!-- MOBILE MENU JAVASCRIPT -->
+<!-- MOBILE HAMBURGER MENU -->
 
 <script>
 
-    const hamburger = document.getElementById("hamburger");
-    const navLinksMobile = document.getElementById("navLinksMobile");
+    const hamburger =
+        document.getElementById("hamburger");
+
+    const navLinksMobile =
+        document.getElementById("navLinksMobile");
+
 
     hamburger.addEventListener("click", function () {
 
@@ -1280,7 +1368,7 @@
     });
 
 
-    /* Close mobile menu after clicking a link */
+    /* Close menu after selecting an option */
 
     const mobileLinks =
         navLinksMobile.querySelectorAll("a");
