@@ -1,1227 +1,1230 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Pavithra C| Aspiring Data Analyst</title>
+<title>Pavithra C | Aspiring Data Analyst</title>
 
-    <link rel="stylesheet"
-          href="templatemo-graph-page.css">
+<link rel="stylesheet"
+      href="templatemo-graph-page.css">
 
-    <!-- GRAPH ALIGNMENT FIX -->
-    <style>
+<style>
 
-        /* Keep all bar labels below the graph bars */
-        .charts-grid .chart-card .bar-chart {
-            align-items: flex-end;
-            position: relative;
-            overflow: visible;
+    /* =========================
+       GRAPH ALIGNMENT
+    ========================== */
+
+    .charts-grid .chart-card .bar-chart {
+        align-items: flex-end;
+        position: relative;
+        overflow: visible;
+    }
+
+    .charts-grid .chart-card .bar {
+        position: relative;
+        overflow: visible;
+    }
+
+    .charts-grid .chart-card .bar-value {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.2;
+        white-space: nowrap;
+        z-index: 2;
+    }
+
+    .charts-grid .chart-card .bar-label {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.2;
+        font-size: 12px;
+        z-index: 5;
+    }
+
+    .charts-grid .chart-card .oracle-bar .bar-label {
+        width: 125px;
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    .charts-grid .chart-card .chart-container {
+        padding-bottom: 55px;
+        overflow: visible;
+    }
+
+    .charts-grid .chart-card .data-tools-bar .bar-label {
+        width: 90px;
+    }
+
+    .charts-grid .chart-card .tools-bar .bar-label {
+        width: 120px;
+    }
+
+
+    /* =========================
+       PROFILE PHOTO
+    ========================== */
+
+    .profile-photo {
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        border: 4px solid #00ffcc;
+        box-shadow: 0 0 25px rgba(0, 255, 204, 0.35);
+    }
+
+    .profile-photo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+
+    /* =========================
+       MOBILE NAVIGATION FIX
+    ========================== */
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #00ffcc;
+        border-radius: 3px;
+    }
+
+    .nav-links-mobile {
+        display: none;
+    }
+
+
+    /* =========================
+       MOBILE RESPONSIVE
+    ========================== */
+
+    @media (max-width: 768px) {
+
+        .nav-links {
+            display: none !important;
         }
 
-        .charts-grid .chart-card .bar {
-            position: relative;
-            overflow: visible;
+        .hamburger {
+            display: flex;
         }
 
-        /* Percentage / value text */
-        .charts-grid .chart-card .bar-value {
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links-mobile {
             position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 100%;
+            left: 0;
             width: 100%;
+            background: #111;
+            padding: 15px 0;
+            margin: 0;
+            list-style: none;
+            z-index: 9999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .nav-links-mobile.show {
+            display: block;
+        }
+
+        .nav-links-mobile li {
+            width: 100%;
+        }
+
+        .nav-links-mobile li a {
+            display: block;
+            padding: 15px 25px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links-mobile li a:hover,
+        .nav-links-mobile li a.active {
+            color: #00ffcc;
+            background: rgba(0,255,204,0.08);
+        }
+
+        .search-icon {
+            display: none !important;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+        }
+
+        .hero-content {
+            flex-direction: column;
             text-align: center;
-            font-size: 12px;
-            line-height: 1.2;
-            white-space: nowrap;
-            z-index: 2;
         }
 
-        /* Skill name below each bar */
-        .charts-grid .chart-card .bar-label {
-            position: absolute;
-            top: calc(100% + 12px);
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            text-align: center;
-            white-space: normal;
-            line-height: 1.2;
-            font-size: 12px;
-            z-index: 5;
+        .hero-text {
+            width: 100%;
         }
 
-        /* Oracle SQL Developer needs more width */
-        .charts-grid .chart-card .oracle-bar .bar-label {
-            width: 125px;
-            font-size: 10px;
-            line-height: 1.2;
+        .hero-visual {
+            width: 100%;
         }
 
-        /* Give chart enough bottom space for labels */
-        .charts-grid .chart-card .chart-container {
-            padding-bottom: 55px;
-            overflow: visible;
+        .info-grid {
+            grid-template-columns: 1fr;
         }
 
-        /* Data Tools labels */
-        .charts-grid .chart-card .data-tools-bar .bar-label {
-            width: 90px;
+        .charts-grid {
+            grid-template-columns: 1fr;
         }
 
-        /* Tools labels */
-        .charts-grid .chart-card .tools-bar .bar-label {
-            width: 120px;
+        .metrics-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-    </style>
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+```
 
 </head>
 
 <body>
 
+```
+<!-- =========================
+     NAVIGATION
+========================== -->
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+<nav id="navbar">
 
-    <nav id="navbar">
+    <div class="nav-container">
 
-        <div class="nav-container">
+        <a href="#home" class="logo">
 
-            <a href="#home" class="logo">
+            <div class="logo-icon">
 
-                <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
 
-                    <svg viewBox="0 0 24 24">
-
-                        <path d="M3 13h2v8H3zm4-8h2v13H7zm4-2h2v15h-2zm4 4h2v11h-2zm4-2h2v13h-2z"/>
-
-                    </svg>
-
-                </div>
-
-                <span class="logo-text">
-                    Pavithra 
-                </span>
-
-            </a>
-
-
-            <ul class="nav-links">
-
-                <li>
-                    <a href="#home" class="active">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#skills">
-                        Skills
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#projects">
-                        Projects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#experience">
-                        Experience
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-
-            <a href="https://www.google.com/search"
-               target="_blank"
-               rel="noopener"
-               title="Search">
-
-                <svg class="search-icon"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="2">
-
-                    <circle cx="11"
-                            cy="11"
-                            r="8">
-                    </circle>
-
-                    <path d="m21 21-4.35-4.35">
-                    </path>
+                    <path d="M3 13h2v8H3zm4-8h2v13H7zm4-2h2v15h-2zm4 4h2v11h-2zm4-2h2v13h-2z"/>
 
                 </svg>
 
-            </a>
-
-
-            <div class="hamburger"
-                 id="hamburger">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
             </div>
 
-        </div>
+            <span class="logo-text">
+                Pavithra
+            </span>
+
+        </a>
 
 
-        <ul class="nav-links-mobile"
-            id="navLinksMobile">
+        <!-- DESKTOP NAVIGATION -->
+
+        <ul class="nav-links">
 
             <li>
-                <a href="#home" class="active">
-                    Home
-                </a>
+                <a href="#home" class="active">Home</a>
             </li>
 
             <li>
-                <a href="#about">
-                    About
-                </a>
+                <a href="#about">About</a>
             </li>
 
             <li>
-                <a href="#skills">
-                    Skills
-                </a>
+                <a href="#skills">Skills</a>
             </li>
 
             <li>
-                <a href="#projects">
-                    Projects
-                </a>
+                <a href="#projects">Projects</a>
             </li>
 
             <li>
-                <a href="#experience">
-                    Experience
-                </a>
+                <a href="#experience">Experience</a>
             </li>
 
             <li>
-                <a href="#contact">
-                    Contact
-                </a>
+                <a href="#contact">Contact</a>
             </li>
 
         </ul>
 
-    </nav>
+
+        <!-- SEARCH ICON REMOVED -->
+
+
+        <!-- HAMBURGER -->
+
+        <div class="hamburger"
+             id="hamburger">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- MOBILE NAVIGATION -->
+
+    <ul class="nav-links-mobile"
+        id="navLinksMobile">
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+            <a href="#experience">Experience</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
 
 
 
-    <!-- =========================
-         HOME
-    ========================== -->
+<!-- =========================
+     HOME
+========================== -->
 
-    <section class="hero"
-             id="home">
+<section class="hero"
+         id="home">
 
-        <div class="hero-bg"></div>
+    <div class="hero-bg"></div>
 
-        <div class="geometric-shapes">
+    <div class="geometric-shapes">
 
-            <div class="shape shape1"></div>
-            <div class="shape shape2"></div>
-            <div class="shape shape3"></div>
-            <div class="shape shape4"></div>
-            <div class="shape shape5"></div>
-            <div class="shape shape6"></div>
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+        <div class="shape shape5"></div>
+        <div class="shape shape6"></div>
+
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <h1>
+                Pavithra C
+            </h1>
+
+            <p>
+                Aspiring Data Analyst
+            </p>
+
+            <p>
+                Python | SQL | Excel | Power BI
+            </p>
+
+            <a href="#projects"
+               class="cta-button">
+
+                View My Projects
+
+            </a>
 
         </div>
 
 
-        <div class="hero-content">
+        <!-- PROFILE PHOTO -->
 
-            <div class="hero-text">
+        <div class="hero-visual">
 
-                <h1>
-                    Pavithra C
-                </h1>
+            <div class="profile-photo-container">
 
-                <p>
-                    Aspiring Data Analyst
+                <img src="images/pic.jpg"
+                     alt="Pavithra C"
+                     class="profile-photo">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section class="dashboard-section"
+         id="about">
+
+    <div class="dashboard-container">
+
+        <h2 class="section-title">
+            About Me
+        </h2>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    👩‍💻
+                </div>
+
+                <h3 class="info-title">
+                    Hello 😊
+                </h3>
+
+                <p style="font-size: 15px;
+                          color: #a0a0a0;
+                          line-height: 1.7;">
+
+                    I am Pavithra - Computer Science
+                    postgraduate and aspiring Data Analyst.
+                    I enjoy working with data, finding useful
+                    insights and building simple, meaningful
+                    solutions using technology.
+
                 </p>
 
-                <p>
-                    Python | SQL | Excel | Power BI
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🎓
+                </div>
+
+                <h3 class="info-title">
+                    Education
+                </h3>
+
+                <div class="info-value">
+                    M.Sc. Computer Science
+                </div>
+
+                <p style="font-size: 14px;
+                          color: #a0a0a0;">
+
+                    St. Anne's Arts and Science College,
+                    Madhavaram
+
+                    <br>
+
+                    Completed in 2025
+
                 </p>
 
-                <a href="#projects"
-                   class="cta-button">
+            </div>
 
-                    View My Projects
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SKILLS
+========================== -->
+
+<section class="analytics-section"
+         id="skills">
+
+    <div class="dashboard-container">
+
+        <h2 class="section-title">
+            Technical Skills
+        </h2>
+
+
+        <div class="metrics-grid">
+
+            <div class="metric-item">
+                <div class="metric-value">Python</div>
+                <div class="metric-label">Programming</div>
+            </div>
+
+            <div class="metric-item">
+                <div class="metric-value">SQL</div>
+                <div class="metric-label">Database</div>
+            </div>
+
+            <div class="metric-item">
+                <div class="metric-value">Excel</div>
+                <div class="metric-label">Data Analysis</div>
+            </div>
+
+            <div class="metric-item">
+                <div class="metric-value">Power BI</div>
+                <div class="metric-label">Visualization</div>
+            </div>
+
+            <div class="metric-item">
+                <div class="metric-value">HTML</div>
+                <div class="metric-label">Web Development</div>
+            </div>
+
+            <div class="metric-item">
+                <div class="metric-value">CSS</div>
+                <div class="metric-label">Web Development</div>
+            </div>
+
+        </div>
+
+
+
+        <div class="charts-grid">
+
+
+            <!-- PROGRAMMING -->
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <h3 class="chart-title">
+                        🐍 Programming
+                    </h3>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <div class="bar-chart">
+
+                        <div class="bar"
+                             style="height: 85%;">
+
+                            <span class="bar-value">
+                                Python
+                            </span>
+
+                            <span class="bar-label">
+                                Python
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar"
+                             style="height: 70%;">
+
+                            <span class="bar-value">
+                                SQL
+                            </span>
+
+                            <span class="bar-label">
+                                SQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DATA TOOLS -->
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <h3 class="chart-title">
+                        📊 Data Tools
+                    </h3>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <div class="bar-chart">
+
+                        <div class="bar data-tools-bar"
+                             style="height: 85%;">
+
+                            <span class="bar-value">
+                                Excel
+                            </span>
+
+                            <span class="bar-label">
+                                Excel
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar data-tools-bar"
+                             style="height: 75%;">
+
+                            <span class="bar-value">
+                                Power BI
+                            </span>
+
+                            <span class="bar-label">
+                                Power BI
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WEB TECHNOLOGIES -->
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <h3 class="chart-title">
+                        🌐 Web Technologies
+                    </h3>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <div class="bar-chart">
+
+                        <div class="bar"
+                             style="height: 75%;">
+
+                            <span class="bar-value">
+                                HTML
+                            </span>
+
+                            <span class="bar-label">
+                                HTML
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar"
+                             style="height: 70%;">
+
+                            <span class="bar-value">
+                                CSS
+                            </span>
+
+                            <span class="bar-label">
+                                CSS
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar"
+                             style="height: 60%;">
+
+                            <span class="bar-value">
+                                JavaScript
+                            </span>
+
+                            <span class="bar-label">
+                                JavaScript
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOOLS -->
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <h3 class="chart-title">
+                        🛠 Tools
+                    </h3>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <div class="bar-chart">
+
+                        <div class="bar tools-bar oracle-bar"
+                             style="height: 90%;">
+
+                            <span class="bar-value">
+                                Oracle SQL Developer
+                            </span>
+
+                            <span class="bar-label">
+                                Oracle SQL<br>
+                                Developer
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar tools-bar"
+                             style="height: 70%;">
+
+                            <span class="bar-value">
+                                Git
+                            </span>
+
+                            <span class="bar-label">
+                                Git
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar tools-bar"
+                             style="height: 70%;">
+
+                            <span class="bar-value">
+                                GitHub
+                            </span>
+
+                            <span class="bar-label">
+                                GitHub
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================== -->
+
+<section class="reports-section"
+         id="projects">
+
+    <div class="dashboard-container">
+
+        <h2 class="section-title">
+            My Projects
+        </h2>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📊
+                </div>
+
+                <h3 class="info-title">
+                    Customer Review Dashboard
+                </h3>
+
+                <div class="info-value">
+                    Data Analysis
+                </div>
+
+                <p style="font-size: 14px;
+                          color: #a0a0a0;
+                          line-height: 1.7;">
+
+                    An interactive dashboard developed using
+                    Python and Streamlit to explore customer
+                    reviews based on age and device information.
+                    Includes data filtering and visualizations
+                    using charts.
+
+                </p>
+
+
+                <p style="font-size: 13px;
+                          color: #00ffcc;">
+
+                    Python | Streamlit | Pandas | Plotly
+
+                </p>
+
+
+                <a href="https://uidashboard.onrender.com/"
+                   target="_blank"
+                   rel="noopener"
+                   class="cta-button"
+                   style="display: inline-block;
+                          margin-top: 15px;">
+
+                    View Project
 
                 </a>
 
             </div>
 
 
-            <div class="hero-visual">
 
-                <div class="city-container">
+            <div class="info-card">
 
-                    <div class="building building1">
-                        <div class="building-fill"></div>
-                        <div class="building-windows"></div>
-                    </div>
-
-                    <div class="building building2">
-                        <div class="building-fill"></div>
-                        <div class="building-windows"></div>
-                    </div>
-
-                    <div class="building building3">
-                        <div class="building-fill"></div>
-                        <div class="building-windows"></div>
-                    </div>
-
-                    <div class="building building4">
-                        <div class="building-fill"></div>
-                        <div class="building-windows"></div>
-                    </div>
-
-                    <div class="neon-line neon-line1"></div>
-                    <div class="neon-line neon-line2"></div>
-
+                <div class="info-icon">
+                    🛡️
                 </div>
+
+                <h3 class="info-title">
+                    Android Malware Detection Using ML
+                </h3>
+
+                <div class="info-value">
+                    Machine Learning
+                </div>
+
+                <p style="font-size: 14px;
+                          color: #a0a0a0;
+                          line-height: 1.7;">
+
+                    A machine learning project that analyzes
+                    Android application-related features and
+                    predicts whether the input belongs to a
+                    benign or malicious category.
+
+                </p>
+
+
+                <p style="font-size: 13px;
+                          color: #00ffcc;">
+
+                    Python | SVM | KNN | Random Forest
+
+                </p>
+
+
+                <a href="https://android-malware-detection-f9o2.onrender.com/"
+                   target="_blank"
+                   rel="noopener"
+                   class="cta-button"
+                   style="display: inline-block;
+                          margin-top: 15px;">
+
+                    View Project
+
+                </a>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+<!-- =========================
+     EXPERIENCE
+========================== -->
 
-    <section class="dashboard-section"
-             id="about">
+<section class="dashboard-section"
+         id="experience">
 
-        <div class="dashboard-container">
+    <div class="dashboard-container">
 
-            <h2 class="section-title">
-                About Me
-            </h2>
-
-
-            <div class="info-grid">
+        <h2 class="section-title">
+            Experience & Certifications
+        </h2>
 
 
-                <div class="info-card">
+        <div class="info-grid">
 
-                    <div class="info-icon">
-                        👩‍💻
-                    </div>
 
-                    <h3 class="info-title">
-                        Hello😊
-                    </h3>
+            <div class="info-card">
 
-                    <p style="font-size: 15px;
-                              color: #a0a0a0;
-                              line-height: 1.7;">
-
-                        I am Pavithra-Computer Science
-                        postgraduate and aspiring Data Analyst.
-                        I enjoy working with data, finding useful
-                        insights and building simple, meaningful
-                        solutions using technology.
-
-                    </p>
-
+                <div class="info-icon">
+                    💼
                 </div>
 
+                <h3 class="info-title">
+                    Data Analyst Intern
+                </h3>
 
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        🎓
-                    </div>
-
-                    <h3 class="info-title">
-                        Education
-                    </h3>
-
-                    <div class="info-value">
-                        M.Sc. Computer Science
-                    </div>
-
-                    <p style="font-size: 14px;
-                              color: #a0a0a0;">
-
-                        St. Anne's Arts and Science College,
-                        Madhavaram
-
-                        <br>
-
-                        Completed in 2025
-
-                    </p>
-
+                <div class="info-value">
+                    Steps Software Solutions
                 </div>
+
+                <p style="font-size: 14px;
+                          color: #a0a0a0;
+                          line-height: 1.7;">
+
+                    Remote | Jun 2023 – Jul 2023
+
+                    <br><br>
+
+                    Worked under the Requirements team and
+                    gathered information from departments
+                    and projects. Collected data from college
+                    official websites and organized the
+                    information using Excel.
+
+                </p>
 
             </div>
+
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    💻
+                </div>
+
+                <h3 class="info-title">
+                    Frontend Web Development Intern
+                </h3>
+
+                <div class="info-value">
+                    Edunet Foundation
+                </div>
+
+                <p style="font-size: 14px;
+                          color: #a0a0a0;
+                          line-height: 1.7;">
+
+                    Remote | Aug 2025 – Sep 2025
+
+                    <br><br>
+
+                    Developed responsive web pages using
+                    HTML, CSS and JavaScript. Worked on
+                    cross-browser compatibility and
+                    interactive JavaScript elements.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🏆
+                </div>
+
+                <h3 class="info-title">
+                    Certifications
+                </h3>
+
+                <p style="font-size: 14px;
+                          color: #a0a0a0;
+                          line-height: 1.9;">
+
+                    • Artificial Intelligence – Microsoft + LinkedIn
+
+                    <br>
+
+                    • Data Analysis – Microsoft + LinkedIn
+
+                    <br>
+
+                    • Agile Scrum – Infosys Springboard
+
+                    <br>
+
+                    • Git and GitHub – Coursera
+
+                    <br>
+
+                    • 5-Day AI Agents Intensive Course with Google
+
+                </p>
+
+            </div>
+
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- =========================
-         SKILLS
-    ========================== -->
+<!-- =========================
+     CONTACT
+========================== -->
 
-    <section class="analytics-section"
-             id="skills">
+<section class="contact-section"
+         id="contact">
 
-        <div class="dashboard-container">
+    <div class="dashboard-container">
 
-            <h2 class="section-title">
-                Technical Skills
-            </h2>
+        <h2 class="section-title">
+            Get In Touch
+        </h2>
 
 
-            <div class="metrics-grid">
+        <div class="contact-grid">
 
-                <div class="metric-item">
 
-                    <div class="metric-value">
-                        Python
+            <div class="contact-form">
+
+                <h3 style="margin-bottom: 30px;
+                           font-size: 24px;">
+
+                    Send Me a Message
+
+                </h3>
+
+
+                <form id="contact-form">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input type="text"
+                               id="name"
+                               name="name"
+                               required>
+
                     </div>
 
-                    <div class="metric-label">
-                        Programming
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               required>
+
                     </div>
 
-                </div>
 
+                    <div class="form-group">
 
-                <div class="metric-item">
+                        <label for="subject">
+                            Subject
+                        </label>
 
-                    <div class="metric-value">
-                        SQL
+                        <input type="text"
+                               id="subject"
+                               name="subject"
+                               required>
+
                     </div>
 
-                    <div class="metric-label">
-                        Database
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea id="message"
+                                  name="message"
+                                  required
+                                  placeholder="Write your message..."></textarea>
+
                     </div>
 
-                </div>
 
+                    <button type="submit"
+                            class="cta-button"
+                            style="width: 100%;">
 
-                <div class="metric-item">
+                        Send Message
 
-                    <div class="metric-value">
-                        Excel
-                    </div>
+                    </button>
 
-                    <div class="metric-label">
-                        Data Analysis
-                    </div>
-
-                </div>
-
-
-                <div class="metric-item">
-
-                    <div class="metric-value">
-                        Power BI
-                    </div>
-
-                    <div class="metric-label">
-                        Visualization
-                    </div>
-
-                </div>
-
-
-                <div class="metric-item">
-
-                    <div class="metric-value">
-                        HTML
-                    </div>
-
-                    <div class="metric-label">
-                        Web Development
-                    </div>
-
-                </div>
-
-
-                <div class="metric-item">
-
-                    <div class="metric-value">
-                        CSS
-                    </div>
-
-                    <div class="metric-label">
-                        Web Development
-                    </div>
-
-                </div>
+                </form>
 
             </div>
 
 
 
-            <div class="charts-grid">
+            <div class="contact-info">
+
+                <h3>
+                    Contact Information
+                </h3>
 
 
-                <!-- =========================
-                     PROGRAMMING
-                ========================== -->
+                <a href="mailto:pavithrac.offl@gmail.com"
+                   class="contact-item"
+                   style="text-decoration: none;
+                          color: inherit;">
 
-                <div class="chart-card">
+                    <div class="contact-icon">
+                        📧
+                    </div>
 
-                    <div class="chart-header">
+                    <div class="contact-details">
 
-                        <h3 class="chart-title">
-                            🐍 Programming
-                        </h3>
+                        <h4>
+                            Email Address
+                        </h4>
+
+                        <p>
+                            pavithrac.offl@gmail.com
+                        </p>
 
                     </div>
 
+                </a>
 
-                    <div class="chart-container">
 
-                        <div class="bar-chart">
 
-                            <div class="bar"
-                                 style="height: 85%;">
+                <a href="https://www.linkedin.com/in/pavithra--c"
+                   target="_blank"
+                   rel="noopener"
+                   class="contact-item"
+                   style="text-decoration: none;
+                          color: inherit;">
 
-                                <span class="bar-value">
-                                    Python
-                                </span>
-
-                                <span class="bar-label">
-                                    Python
-                                </span>
-
-                            </div>
-
-
-                            <div class="bar"
-                                 style="height: 70%;">
-
-                                <span class="bar-value">
-                                    SQL
-                                </span>
-
-                                <span class="bar-label">
-                                    SQL
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =========================
-                     DATA TOOLS
-                ========================== -->
-
-                <div class="chart-card">
-
-                    <div class="chart-header">
-
-                        <h3 class="chart-title">
-                            📊 Data Tools
-                        </h3>
-
-                    </div>
-
-
-                    <div class="chart-container">
-
-                        <div class="bar-chart">
-
-
-                            <!-- Excel -->
-
-                            <div class="bar data-tools-bar"
-                                 style="height: 85%;">
-
-                                <span class="bar-value">
-                                    Excel
-                                </span>
-
-                                <span class="bar-label">
-                                    Excel
-                                </span>
-
-                            </div>
-
-
-                            <!-- Power BI -->
-
-                            <div class="bar data-tools-bar"
-                                 style="height: 75%;">
-
-                                <span class="bar-value">
-                                    Power BI
-                                </span>
-
-                                <span class="bar-label">
-                                    Power BI
-                                </span>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =========================
-                     WEB TECHNOLOGIES
-                ========================== -->
-
-                <div class="chart-card">
-
-                    <div class="chart-header">
-
-                        <h3 class="chart-title">
-                            🌐 Web Technologies
-                        </h3>
-
-                    </div>
-
-
-                    <div class="chart-container">
-
-                        <div class="bar-chart">
-
-
-                            <div class="bar"
-                                 style="height: 75%;">
-
-                                <span class="bar-value">
-                                    HTML
-                                </span>
-
-                                <span class="bar-label">
-                                    HTML
-                                </span>
-
-                            </div>
-
-
-                            <div class="bar"
-                                 style="height: 70%;">
-
-                                <span class="bar-value">
-                                    CSS
-                                </span>
-
-                                <span class="bar-label">
-                                    CSS
-                                </span>
-
-                            </div>
-
-
-                            <div class="bar"
-                                 style="height: 60%;">
-
-                                <span class="bar-value">
-                                    JavaScript
-                                </span>
-
-                                <span class="bar-label">
-                                    JavaScript
-                                </span>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =========================
-                     TOOLS
-                ========================== -->
-
-                <div class="chart-card">
-
-                    <div class="chart-header">
-
-                        <h3 class="chart-title">
-                            🛠 Tools
-                        </h3>
-
-                    </div>
-
-
-                    <div class="chart-container">
-
-                        <div class="bar-chart">
-
-
-                            <!-- Oracle SQL Developer -->
-
-                            <div class="bar tools-bar oracle-bar"
-                                 style="height: 90%;">
-
-                                <span class="bar-value">
-                                    Oracle SQL Developer
-                                </span>
-
-                                <span class="bar-label">
-                                    Oracle SQL<br>
-                                    Developer
-                                </span>
-
-                            </div>
-
-
-                            <!-- Git -->
-
-                            <div class="bar tools-bar"
-                                 style="height: 70%;">
-
-                                <span class="bar-value">
-                                    Git
-                                </span>
-
-                                <span class="bar-label">
-                                    Git
-                                </span>
-
-                            </div>
-
-
-                            <!-- GitHub -->
-
-                            <div class="bar tools-bar"
-                                 style="height: 70%;">
-
-                                <span class="bar-value">
-                                    GitHub
-                                </span>
-
-                                <span class="bar-label">
-                                    GitHub
-                                </span>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         PROJECTS
-    ========================== -->
-
-    <section class="reports-section"
-             id="projects">
-
-        <div class="dashboard-container">
-
-            <h2 class="section-title">
-                My Projects
-            </h2>
-
-
-            <div class="info-grid">
-
-
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        📊
-                    </div>
-
-                    <h3 class="info-title">
-                        Customer Review Dashboard
-                    </h3>
-
-                    <div class="info-value">
-                        Data Analysis
-                    </div>
-
-                    <p style="font-size: 14px;
-                              color: #a0a0a0;
-                              line-height: 1.7;">
-
-                        An interactive dashboard developed using
-                        Python and Streamlit to explore customer
-                        reviews based on age and device information.
-                        Includes data filtering and visualizations
-                        using charts.
-
-                    </p>
-
-
-                    <p style="font-size: 13px;
-                              color: #00ffcc;">
-
-                        Python | Streamlit | Pandas | Plotly
-
-                    </p>
-
-
-                    <a href="https://uidashboard.onrender.com/"
-                       target="_blank"
-                       rel="noopener"
-                       class="cta-button"
-                       style="display: inline-block;
-                              margin-top: 15px;">
-
-                        View Project
-
-                    </a>
-
-                </div>
-
-
-
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        🛡️
-                    </div>
-
-                    <h3 class="info-title">
-                        Android Malware Detection Using ML
-                    </h3>
-
-                    <div class="info-value">
-                        Machine Learning
-                    </div>
-
-                    <p style="font-size: 14px;
-                              color: #a0a0a0;
-                              line-height: 1.7;">
-
-                        A machine learning project that analyzes
-                        Android application-related features and
-                        predicts whether the input belongs to a
-                        benign or malicious category.
-
-                    </p>
-
-
-                    <p style="font-size: 13px;
-                              color: #00ffcc;">
-
-                        Python | SVM | KNN | Random Forest
-
-                    </p>
-
-
-                    <a href="https://android-malware-detection-f9o2.onrender.com/"
-                       target="_blank"
-                       rel="noopener"
-                       class="cta-button"
-                       style="display: inline-block;
-                              margin-top: 15px;">
-
-                        View Project
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         EXPERIENCE
-    ========================== -->
-
-    <section class="dashboard-section"
-             id="experience">
-
-        <div class="dashboard-container">
-
-            <h2 class="section-title">
-                Experience & Certifications
-            </h2>
-
-
-            <div class="info-grid">
-
-
-                <!-- Internship 1 -->
-
-                <div class="info-card">
-
-                    <div class="info-icon">
+                    <div class="contact-icon">
                         💼
                     </div>
 
-                    <h3 class="info-title">
-                        Data Analyst Intern
-                    </h3>
+                    <div class="contact-details">
 
-                    <div class="info-value">
-                        Steps Software Solutions
+                        <h4>
+                            LinkedIn
+                        </h4>
+
+                        <p>
+                            View my LinkedIn profile
+                        </p>
+
                     </div>
 
-                    <p style="font-size: 14px;
-                              color: #a0a0a0;
-                              line-height: 1.7;">
-
-                        Remote | Jun 2023 – Jul 2023
-
-                        <br><br>
-
-                        Worked under the Requirements team and
-                        gathered information from departments
-                        and projects. Collected data from college
-                        official websites and organized the
-                        information using Excel.
-
-                    </p>
-
-                </div>
+                </a>
 
 
 
-                <!-- Internship 2 -->
+                <a href="https://github.com/Pavithra0508"
+                   target="_blank"
+                   rel="noopener"
+                   class="contact-item"
+                   style="text-decoration: none;
+                          color: inherit;">
 
-                <div class="info-card">
-
-                    <div class="info-icon">
+                    <div class="contact-icon">
                         💻
                     </div>
 
-                    <h3 class="info-title">
-                        Frontend Web Development Intern
-                    </h3>
+                    <div class="contact-details">
 
-                    <div class="info-value">
-                        Edunet Foundation
+                        <h4>
+                            GitHub
+                        </h4>
+
+                        <p>
+                            github.com/Pavithra0508
+                        </p>
+
                     </div>
 
-                    <p style="font-size: 14px;
-                              color: #a0a0a0;
-                              line-height: 1.7;">
-
-                        Remote | Aug 2025 – Sep 2025
-
-                        <br><br>
-
-                        Developed responsive web pages using
-                        HTML, CSS and JavaScript. Worked on
-                        cross-browser compatibility and
-                        interactive JavaScript elements.
-
-                    </p>
-
-                </div>
+                </a>
 
 
 
-                <!-- Certifications -->
+                <div class="contact-item">
 
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        🏆
+                    <div class="contact-icon">
+                        📊
                     </div>
 
-                    <h3 class="info-title">
-                        Certifications
-                    </h3>
-
-                    <p style="font-size: 14px;
-                              color: #a0a0a0;
-                              line-height: 1.9;">
-
-                        • Artificial Intelligence – Microsoft + LinkedIn
-
-                        <br>
-
-                        • Data Analysis – Microsoft + LinkedIn
-
-                        <br>
-
-                        • Agile Scrum – Infosys Springboard
-
-                        <br>
-
-                        • Git and GitHub – Coursera
-
-                        <br>
-
-                        • 5-Day AI Agents Intensive Course with Google
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CONTACT
-    ========================== -->
-
-    <section class="contact-section"
-             id="contact">
-
-        <div class="dashboard-container">
-
-            <h2 class="section-title">
-                Get In Touch
-            </h2>
-
-
-            <div class="contact-grid">
-
-
-                <div class="contact-form">
-
-                    <h3 style="margin-bottom: 30px;
-                               font-size: 24px;">
-
-                        Send Me a Message
-
-                    </h3>
-
-
-                    <form id="contact-form">
-
-                        <div class="form-group">
-
-                            <label for="name">
-                                Full Name
-                            </label>
-
-                            <input type="text"
-                                   id="name"
-                                   name="name"
-                                   required>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="email">
-                                Email Address
-                            </label>
-
-                            <input type="email"
-                                   id="email"
-                                   name="email"
-                                   required>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="subject">
-                                Subject
-                            </label>
-
-                            <input type="text"
-                                   id="subject"
-                                   name="subject"
-                                   required>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="message">
-                                Message
-                            </label>
-
-                            <textarea id="message"
-                                      name="message"
-                                      required
-                                      placeholder="Write your message..."></textarea>
-
-                        </div>
-
-
-                        <button type="submit"
-                                class="cta-button"
-                                style="width: 100%;">
-
-                            Send Message
-
-                        </button>
-
-                    </form>
-
-                </div>
-
-
-
-                <div class="contact-info">
-
-                    <h3>
-                        Contact Information
-                    </h3>
-
-
-                    <a href="mailto:pavithrac.offl@gmail.com"
-                       class="contact-item"
-                       style="text-decoration: none;
-                              color: inherit;">
-
-                        <div class="contact-icon">
-                            📧
-                        </div>
-
-                        <div class="contact-details">
-
-                            <h4>
-                                Email Address
-                            </h4>
-
-                            <p>
-                                pavithrac.offl@gmail.com
-                            </p>
-
-                        </div>
-
-                    </a>
-
-
-
-                    <a href="https://www.linkedin.com/in/pavithra--c"
-                       target="_blank"
-                       rel="noopener"
-                       class="contact-item"
-                       style="text-decoration: none;
-                              color: inherit;">
-
-                        <div class="contact-icon">
-                            💼
-                        </div>
-
-                        <div class="contact-details">
-
-                            <h4>
-                                LinkedIn
-                            </h4>
-
-                            <p>
-                                View my LinkedIn profile
-                            </p>
-
-                        </div>
-
-                    </a>
-
-
-
-                    <a href="https://github.com/Pavithra0508"
-                       target="_blank"
-                       rel="noopener"
-                       class="contact-item"
-                       style="text-decoration: none;
-                              color: inherit;">
-
-                        <div class="contact-icon">
-                            💻
-                        </div>
-
-                        <div class="contact-details">
-
-                            <h4>
-                                GitHub
-                            </h4>
-
-                            <p>
-                                github.com/Pavithra0508
-                            </p>
-
-                        </div>
-
-                    </a>
-
-
-
-                    <div class="contact-item">
-
-                        <div class="contact-icon">
-                            📊
-                        </div>
-
-                        <div class="contact-details">
-
-                            <h4>
-                                Career Focus
-                            </h4>
-
-                            <p>
-                                Data Analysis
-                            </p>
-
-                        </div>
+                    <div class="contact-details">
+
+                        <h4>
+                            Career Focus
+                        </h4>
+
+                        <p>
+                            Data Analysis
+                        </p>
 
                     </div>
 
@@ -1231,39 +1234,69 @@
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+<!-- =========================
+     FOOTER
+========================== -->
 
-    <footer>
+<footer>
 
-        <div class="footer-content">
+    <div class="footer-content">
 
-            <p class="copyright">
+        <p class="copyright">
 
-                © Pavithra C.
-                All rights reserved.
+            © Pavithra C.
+            All rights reserved.
 
-                <br>
+        </p>
 
-            </p>
+    </div>
 
-        </div>
-
-    </footer>
+</footer>
 
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
+<!-- ORIGINAL JAVASCRIPT -->
 
-    <script src="templatemo-graph-script.js"></script>
+<script src="templatemo-graph-script.js"></script>
+
+
+<!-- MOBILE MENU JAVASCRIPT -->
+
+<script>
+
+    const hamburger = document.getElementById("hamburger");
+    const navLinksMobile = document.getElementById("navLinksMobile");
+
+    hamburger.addEventListener("click", function () {
+
+        navLinksMobile.classList.toggle("show");
+
+    });
+
+
+    /* Close mobile menu after clicking a link */
+
+    const mobileLinks =
+        navLinksMobile.querySelectorAll("a");
+
+    mobileLinks.forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            navLinksMobile.classList.remove("show");
+
+        });
+
+    });
+
+</script>
+```
 
 </body>
-
 </html>
